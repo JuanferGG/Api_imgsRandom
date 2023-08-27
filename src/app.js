@@ -13,5 +13,11 @@ app.use((req, res, next) => {
     })
 })
 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*'); // Permitir todas las solicitudes (esto puede ajustarse para mayor seguridad)
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE'); // Métodos HTTP permitidos
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept'); // Encabezados permitidos
+    next();
+});
 
 export default app
